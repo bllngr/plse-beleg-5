@@ -25,13 +25,7 @@ SUITE(shape_testsuite)
 	TEST(check_print_on)
 	{
 		box box1;
-		shape* shapePointer = box1;
-		cout << (*shapePointer) << endl;
-		assert(shapePointer != 0); // makro assert
-		delete shapePointer;
-		shapePointer = 0;
-
-	}
+		cout << box1 << endl;	}
 }
 
 int main()
