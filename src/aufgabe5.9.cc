@@ -1,6 +1,6 @@
 /* -*- Mode: C; indent-tabs-mode: t; c-basic-offset: 4; tab-width: 4 -*- */
 /*
- * aufgabe5.10.cc
+ * aufgabe5.9.cc
  * Copyright (C) Julius Bullinger 2010 <julius.bullinger@uni-weimar.de>
  *
  *   This program is free software. It comes without any warranty, to the extent
