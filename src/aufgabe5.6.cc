@@ -25,7 +25,8 @@ SUITE(shape_testsuite)
 	TEST(check_print_on)
 	{
 		box box1;
-		cout << box1 << endl;	}
+		cout << box1 << endl;
+	}
 }
 
 int main()
