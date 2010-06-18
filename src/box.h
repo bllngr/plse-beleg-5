@@ -26,7 +26,7 @@ public:
 	box(point3d const& corner, double length, double width, double height,
 		std::string const& name, color const& color);
 	box(box const&); // copy c'tor
-	~box(); // des'tor
+	/* virtual */ ~box(); // des'tor
 
 	// getters
 	double length() const;

@@ -11,20 +11,23 @@
  * 
  */
 
-#include "box.h"
 #include <cmath> // M_PI, pow()
 #include <iostream>
 #include <ostream>
+#include "box.h"
 
 using namespace std;
 
+// constructors and destructors
 box::box() :
 corner_(point3d(-.5,-.5,.5)),
 length_(1),
 width_(1),
 height_(2),
 shape("box", color(0,0,0))
-{}
+{
+	cout << "box def c'tor" << endl;
+}
 
 box::box(point3d const& corner, double length, double width, double height) :
 corner_(corner),
@@ -32,7 +35,9 @@ length_(length),
 width_(width),
 height_(height),
 shape("box", color(0,0,0))
-{}
+{
+	cout << "box c'tor" << endl;
+}
 
 box::box(point3d const& corner, double length, double width, double height,
 	std::string const& name, color const& color) :
@@ -41,7 +46,9 @@ length_(length),
 width_(width),
 height_(height),
 shape(name, color)
-{}
+{
+	cout << "box c'tor" << endl;
+}
 
 box::box(box const& other) :
 corner_(other.corner()),
@@ -49,8 +56,16 @@ length_(other.length()),
 width_(other.width()),
 height_(other.height()),
 shape(other.name(), other.Color())
-{}
+{
+	cout << "box copy c'tor" << endl;
+}
 
+/* virtual */ box::~box()  // dec'tor
+{
+	cout << "box d'tor" << endl;
+}
+
+// getters
 double box::width() const
 {
 	return width_;
@@ -71,6 +86,7 @@ point3d box::corner() const
 	return corner_;
 }
 
+// inherited member functions from shape
 /* virtual */ double box::volume() const
 {
 	return length_ * width_ * height_;
@@ -102,9 +118,7 @@ point3d box::corner() const
 		height_ << ")";
 }
 
-box::~box()  // dec'tor
-{}
-
+// ostream operator (external definition)
 std::ostream& operator<<(std::ostream& os, box const& box)
 {
 	box.printOn(os);

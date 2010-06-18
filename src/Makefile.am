@@ -17,15 +17,7 @@ bin_PROGRAMS = \
 	aufgabe5.5 \
 	aufgabe5.6 \
 	aufgabe5.7 \
-	aufgabe5.10 \
-	pointtest
-
-pointtest_SOURCES = \
-	point3d.cc \
-	point3d.h 
-
-pointtest_LDADD = \
-	$(UNITTEST_LIBS)
+	aufgabe5.10 
 
 aufgabe5_10_SOURCES = \
 	aufgabe5.10.cc\

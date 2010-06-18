@@ -50,7 +50,8 @@ aufgabe5_7_SOURCES = \
 	shape.cc      \
 	shape.h      \
 	sphere.cc      \
-	sphere.h
+	sphere.h      \
+	aufgabe5.7.cc
 
 aufgabe5_6_SOURCES = \
 	shape.cc    \

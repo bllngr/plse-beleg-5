@@ -34,7 +34,7 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 bin_PROGRAMS = aufgabe5.1$(EXEEXT) aufgabe5.3$(EXEEXT) \
 	aufgabe5.5$(EXEEXT) aufgabe5.6$(EXEEXT) aufgabe5.7$(EXEEXT) \
-	aufgabe5.10$(EXEEXT) pointtest$(EXEEXT)
+	aufgabe5.10$(EXEEXT)
 subdir = src
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -74,9 +74,6 @@ am_aufgabe5_7_OBJECTS = box.$(OBJEXT) color.$(OBJEXT) \
 	aufgabe5.7.$(OBJEXT)
 aufgabe5_7_OBJECTS = $(am_aufgabe5_7_OBJECTS)
 aufgabe5_7_LDADD = $(LDADD)
-am_pointtest_OBJECTS = point3d.$(OBJEXT)
-pointtest_OBJECTS = $(am_pointtest_OBJECTS)
-pointtest_DEPENDENCIES = $(am__DEPENDENCIES_1)
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__depfiles_maybe = depfiles
@@ -110,12 +107,10 @@ am__v_GEN_ = $(am__v_GEN_$(AM_DEFAULT_VERBOSITY))
 am__v_GEN_0 = @echo "  GEN   " $@;
 SOURCES = $(aufgabe5_1_SOURCES) $(aufgabe5_10_SOURCES) \
 	$(aufgabe5_3_SOURCES) $(aufgabe5_5_SOURCES) \
-	$(aufgabe5_6_SOURCES) $(aufgabe5_7_SOURCES) \
-	$(pointtest_SOURCES)
+	$(aufgabe5_6_SOURCES) $(aufgabe5_7_SOURCES)
 DIST_SOURCES = $(aufgabe5_1_SOURCES) $(aufgabe5_10_SOURCES) \
 	$(aufgabe5_3_SOURCES) $(aufgabe5_5_SOURCES) \
-	$(aufgabe5_6_SOURCES) $(aufgabe5_7_SOURCES) \
-	$(pointtest_SOURCES)
+	$(aufgabe5_6_SOURCES) $(aufgabe5_7_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -222,13 +217,6 @@ AM_CPPFLAGS = \
 AM_CFLAGS = \
 	 -Wall\
 	 -g
-
-pointtest_SOURCES = \
-	point3d.cc \
-	point3d.h 
-
-pointtest_LDADD = \
-	$(UNITTEST_LIBS)
 
 aufgabe5_10_SOURCES = \
 	aufgabe5.10.cc\
@@ -399,9 +387,6 @@ aufgabe5.6$(EXEEXT): $(aufgabe5_6_OBJECTS) $(aufgabe5_6_DEPENDENCIES)
 aufgabe5.7$(EXEEXT): $(aufgabe5_7_OBJECTS) $(aufgabe5_7_DEPENDENCIES) 
 	@rm -f aufgabe5.7$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(aufgabe5_7_OBJECTS) $(aufgabe5_7_LDADD) $(LIBS)
-pointtest$(EXEEXT): $(pointtest_OBJECTS) $(pointtest_DEPENDENCIES) 
-	@rm -f pointtest$(EXEEXT)
-	$(AM_V_CXXLD)$(CXXLINK) $(pointtest_OBJECTS) $(pointtest_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)

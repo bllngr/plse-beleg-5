@@ -21,20 +21,28 @@
 
 class shape {
 public:
-	shape();
+	// constructors and destructors
+	shape(); // def c'tor
 	shape(std::string const& name, color const& color);
+	shape(shape const&); // copy c'tor
+	virtual ~shape(); // des'tor
+
+	// getters
+	std::string const& name() const;
+	color const& Color() const;  // cannot be of the same name as the struct
+	
+	// misc member functions
 	virtual double volume() const = 0;
 	virtual double surface() const = 0;
 	virtual bool is_inside(point3d const& point) const = 0;
-	std::string const& name() const;
-	color const& Color() const;  // cannot be of the same name as the struct color
 	virtual void printOn(std::ostream& os) const;
-	~shape();
+
 private:
 	std::string name_;
 	color color_;
 };
 
+// ostream operator (external declaration)
 std::ostream& operator<<(std::ostream& os, shape const& shape);
 
 #endif // SHAPE_H

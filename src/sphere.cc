@@ -11,36 +11,52 @@
  * 
  */
 
-#include "sphere.h"
 #include <cmath> // M_PI, pow()
+#include <iostream>
+#include "sphere.h"
 
 using namespace std;
 
+// constructors and destructors
 sphere::sphere() :
 center_(point3d(0,0,0)),
 radius_(1),
 shape("sphere", color(0,0,0))
-{}
+{
+	cout << "sphere def c'tor" << endl;
+}
 
 sphere::sphere(point3d const& center, double radius) :
 center_(center),
 radius_(radius),
 shape("sphere", color(0,0,0))
-{}
+{
+	cout << "sphere c'tor" << endl;
+}
 
 sphere::sphere(point3d const& center, double radius, string const& name,
 		color const& color) :
 center_(center),
 radius_(radius),
 shape(name, color)
-{}
+{
+	cout << "sphere c'tor" << endl;
+}
 
 sphere::sphere(sphere const& other) :
 center_(other.center()),
 radius_(other.radius()),
 shape(other.name(), other.Color())
-{}
+{
+	cout << "sphere copy c'tor" << endl;
+}
 
+/* virtual */ sphere::~sphere()
+{
+	cout << "sphere de'tor" << endl;
+}
+
+// getters
 double sphere::radius() const
 {
 	return radius_;
@@ -51,6 +67,7 @@ point3d sphere::center() const
 	return center_;
 }
 
+// inherited member functions from shape
 /* virtual */ double sphere::volume() const
 {
 	return (4./3 * M_PI * pow(radius_,3));
@@ -72,9 +89,7 @@ point3d sphere::center() const
 	os << ", " << center_ << ", " << radius_ << ")";
 }
 
-sphere::~sphere()  // dec'tor
-{}
-
+// ostream operator (external definition)
 std::ostream& operator<<(std::ostream& os, sphere const& sphere)
 {
 	sphere.printOn(os);

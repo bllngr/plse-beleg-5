@@ -11,21 +11,40 @@
  * 
  */
 
-#include "shape.h"
+#include <iostream>
 #include <typeinfo>
+#include "shape.h"
 
 using namespace std;
 
+// constructors and destructors
 shape::shape() :
 name_("shape"),
 color_(color(0,0,0))
-{}
+{
+	cout << "shape c'tor" << endl;
+}
 
 shape::shape(string const& name, color const& color) :
 name_(name),
 color_(color)
-{}
+{
+	cout << "shape c'tor" << endl;
+}
 
+shape::shape(shape const& other) :
+name_(other.name()),
+color_(other.Color())
+{
+	cout << "shape c'tor" << endl;
+}
+
+/* virtual */ shape::~shape()
+{
+	cout << "shape d'tor" << endl;
+}
+
+// getters
 string const& shape::name () const
 {
 	return name_;
@@ -36,14 +55,13 @@ color const& shape::Color () const
 	return color_;
 }
 
+// misc member functions
 /* virtual */ void shape::printOn(std::ostream& os) const
 {
 	os << typeid(*this).name() << "(\"" << name_ << "\", " << color_ << ", ";
 }
 
-shape::~shape()
-{}
-
+// ostream operator (external definition)
 std::ostream& operator<<(std::ostream& os, shape const& shape)
 {
 	shape.printOn(os);
