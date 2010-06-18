@@ -17,7 +17,21 @@ bin_PROGRAMS = \
 	aufgabe5.5 \
 	aufgabe5.6 \
 	aufgabe5.7 \
-	aufgabe5.10 
+	aufgabe5.10 \
+	aufgabe5.9
+
+aufgabe5_9_SOURCES = \
+	sphere.h    \
+	sphere.cc    \
+	shape.h    \
+	shape.cc    \
+	point3d.h    \
+	point3d.cc    \
+	color.h    \
+	color.cc    \
+	box.h    \
+	box.cc    \
+	aufgabe5.9.cc
 
 aufgabe5_10_SOURCES = \
 	aufgabe5.10.cc\

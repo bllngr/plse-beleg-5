@@ -34,7 +34,7 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 bin_PROGRAMS = aufgabe5.1$(EXEEXT) aufgabe5.3$(EXEEXT) \
 	aufgabe5.5$(EXEEXT) aufgabe5.6$(EXEEXT) aufgabe5.7$(EXEEXT) \
-	aufgabe5.10$(EXEEXT)
+	aufgabe5.10$(EXEEXT) aufgabe5.9$(EXEEXT)
 subdir = src
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -74,6 +74,11 @@ am_aufgabe5_7_OBJECTS = box.$(OBJEXT) color.$(OBJEXT) \
 	aufgabe5.7.$(OBJEXT)
 aufgabe5_7_OBJECTS = $(am_aufgabe5_7_OBJECTS)
 aufgabe5_7_LDADD = $(LDADD)
+am_aufgabe5_9_OBJECTS = sphere.$(OBJEXT) shape.$(OBJEXT) \
+	point3d.$(OBJEXT) color.$(OBJEXT) box.$(OBJEXT) \
+	aufgabe5.9.$(OBJEXT)
+aufgabe5_9_OBJECTS = $(am_aufgabe5_9_OBJECTS)
+aufgabe5_9_LDADD = $(LDADD)
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__depfiles_maybe = depfiles
@@ -107,10 +112,12 @@ am__v_GEN_ = $(am__v_GEN_$(AM_DEFAULT_VERBOSITY))
 am__v_GEN_0 = @echo "  GEN   " $@;
 SOURCES = $(aufgabe5_1_SOURCES) $(aufgabe5_10_SOURCES) \
 	$(aufgabe5_3_SOURCES) $(aufgabe5_5_SOURCES) \
-	$(aufgabe5_6_SOURCES) $(aufgabe5_7_SOURCES)
+	$(aufgabe5_6_SOURCES) $(aufgabe5_7_SOURCES) \
+	$(aufgabe5_9_SOURCES)
 DIST_SOURCES = $(aufgabe5_1_SOURCES) $(aufgabe5_10_SOURCES) \
 	$(aufgabe5_3_SOURCES) $(aufgabe5_5_SOURCES) \
-	$(aufgabe5_6_SOURCES) $(aufgabe5_7_SOURCES)
+	$(aufgabe5_6_SOURCES) $(aufgabe5_7_SOURCES) \
+	$(aufgabe5_9_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -217,6 +224,19 @@ AM_CPPFLAGS = \
 AM_CFLAGS = \
 	 -Wall\
 	 -g
+
+aufgabe5_9_SOURCES = \
+	sphere.h    \
+	sphere.cc    \
+	shape.h    \
+	shape.cc    \
+	point3d.h    \
+	point3d.cc    \
+	color.h    \
+	color.cc    \
+	box.h    \
+	box.cc    \
+	aufgabe5.9.cc
 
 aufgabe5_10_SOURCES = \
 	aufgabe5.10.cc\
@@ -387,6 +407,9 @@ aufgabe5.6$(EXEEXT): $(aufgabe5_6_OBJECTS) $(aufgabe5_6_DEPENDENCIES)
 aufgabe5.7$(EXEEXT): $(aufgabe5_7_OBJECTS) $(aufgabe5_7_DEPENDENCIES) 
 	@rm -f aufgabe5.7$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(aufgabe5_7_OBJECTS) $(aufgabe5_7_LDADD) $(LIBS)
+aufgabe5.9$(EXEEXT): $(aufgabe5_9_OBJECTS) $(aufgabe5_9_DEPENDENCIES) 
+	@rm -f aufgabe5.9$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(aufgabe5_9_OBJECTS) $(aufgabe5_9_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -400,6 +423,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/aufgabe5.5.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/aufgabe5.6.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/aufgabe5.7.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/aufgabe5.9.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/box.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/color.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/point3d.Po@am__quote@
