@@ -38,7 +38,7 @@ sphere::sphere(point3d const& ctr, double r, string const& name,
 		color const& clr) :
 center_(ctr),
 radius_(r),
-shape("sphere", color(0,0,0))
+shape(name, clr)
 {
 	cout << "sphere c'tor" << endl;
 }
