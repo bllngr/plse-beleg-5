@@ -85,7 +85,7 @@ point3d sphere::center() const
 
 /* virtual */ void sphere::printOn(std::ostream& os) const
 {
-	// shape::printOn(os);
+	shape::printOn(os);
 	os << ", " << center_ << ", " << radius_ << ")";
 }
 
