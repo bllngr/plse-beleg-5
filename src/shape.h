@@ -23,7 +23,7 @@ class shape {
 public:
 	// constructors and destructors
 	shape(); // def c'tor
-	shape(std::string const& name, color const& color);
+	shape(std::string const&, color const&);
 	shape(shape const&); // copy c'tor
 	virtual ~shape(); // des'tor
 
@@ -43,6 +43,6 @@ private:
 };
 
 // ostream operator (external declaration)
-std::ostream& operator<<(std::ostream& os, shape const& shape);
+std::ostream& operator<<(std::ostream&, shape const&);
 
 #endif // SHAPE_H
