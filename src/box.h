@@ -22,9 +22,9 @@ class box: public shape
 public:
 	// constructors and destructors
 	box(); // def c'tor
-	box(point3d const& corner, double length, double width, double height);
-	box(point3d const& corner, double length, double width, double height,
-		std::string const& name, color const& color);
+	box(point3d const&, double, double, double);
+	box(point3d const&, double, double, double, std::string const&,
+		color const&);
 	box(box const&); // copy c'tor
 	/* virtual */ ~box(); // des'tor
 
@@ -37,8 +37,8 @@ public:
 	// inherited member functions from shape
 	/* virtual */ double volume() const;
 	/* virtual */ double surface() const;
-	/* virtual */ bool is_inside(point3d const& point) const;
-	/* virtual */ void printOn(std::ostream& os) const;
+	/* virtual */ bool is_inside(point3d const&) const;
+	/* virtual */ void printOn(std::ostream&) const;
 
 private:
 	point3d corner_;
@@ -48,6 +48,6 @@ private:
 };
 
 // ostream operator (external declaration)
-std::ostream& operator<<(std::ostream& os, box const& box);
+std::ostream& operator<<(std::ostream&, box const&);
 
 #endif // BOX_H

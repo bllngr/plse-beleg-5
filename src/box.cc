@@ -29,23 +29,23 @@ shape("box", color(0,0,0))
 	cout << "box def c'tor" << endl;
 }
 
-box::box(point3d const& corner, double length, double width, double height) :
-corner_(corner),
-length_(length),
-width_(width),
-height_(height),
+box::box(point3d const& crn, double l, double w, double h) :
+corner_(crn),
+length_(l),
+width_(w),
+height_(h),
 shape("box", color(0,0,0))
 {
 	cout << "box c'tor" << endl;
 }
 
-box::box(point3d const& corner, double length, double width, double height,
-	std::string const& name, color const& color) :
-corner_(corner),
-length_(length),
-width_(width),
-height_(height),
-shape(name, color)
+box::box(point3d const& crn, double l, double w, double h,
+	std::string const& name, color const& clr) :
+corner_(crn),
+length_(l),
+width_(w),
+height_(h),
+shape(name, clr)
 {
 	cout << "box c'tor" << endl;
 }
@@ -119,8 +119,8 @@ point3d box::corner() const
 }
 
 // ostream operator (external definition)
-std::ostream& operator<<(std::ostream& os, box const& box)
+std::ostream& operator<<(std::ostream& os, box const& b)
 {
-	box.printOn(os);
+	b.printOn(os);
 	return os;
 }

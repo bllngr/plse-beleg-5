@@ -26,19 +26,19 @@ shape("sphere", color(0,0,0))
 	cout << "sphere def c'tor" << endl;
 }
 
-sphere::sphere(point3d const& center, double radius) :
-center_(center),
-radius_(radius),
+sphere::sphere(point3d const& ctr, double r) :
+center_(ctr),
+radius_(r),
 shape("sphere", color(0,0,0))
 {
 	cout << "sphere c'tor" << endl;
 }
 
-sphere::sphere(point3d const& center, double radius, string const& name,
-		color const& color) :
-center_(center),
-radius_(radius),
-shape(name, color)
+sphere::sphere(point3d const& ctr, double r, string const& name,
+		color const& clr) :
+center_(ctr),
+radius_(r),
+shape("sphere", color(0,0,0))
 {
 	cout << "sphere c'tor" << endl;
 }
@@ -90,8 +90,8 @@ point3d sphere::center() const
 }
 
 // ostream operator (external definition)
-std::ostream& operator<<(std::ostream& os, sphere const& sphere)
+std::ostream& operator<<(std::ostream& os, sphere const& sphr)
 {
-	sphere.printOn(os);
+	sphr.printOn(os);
 	return os;
 }

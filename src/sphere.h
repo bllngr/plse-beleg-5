@@ -22,9 +22,8 @@ class sphere: public shape
 public:
 	// constructors and destructors
 	sphere(); // def c'tor
-	sphere(point3d const& center, double radius);
-	sphere(point3d const& center, double radius, std::string const& name,
-		color const& color);
+	sphere(point3d const&, double);
+	sphere(point3d const&, double, std::string const&, color const&);
 	sphere(sphere const&); // copy c'tor
 	/* virtual */ ~sphere(); // des'tor
 
@@ -35,14 +34,14 @@ public:
 	// inherited member functions from shape
 	/* virtual */ double volume() const;
 	/* virtual */ double surface() const;
-	/* virtual */ bool is_inside(point3d const& point) const;
-	/* virtual */ void printOn(std::ostream& os) const;
+	/* virtual */ bool is_inside(point3d const&) const;
+	/* virtual */ void printOn(std::ostream&) const;
 private:
 	double radius_;
 	point3d center_;
 };
 
 // ostream operator (external declaration)
-std::ostream& operator<<(std::ostream& os, sphere const& sphere);
+std::ostream& operator<<(std::ostream&, sphere const&);
 
 #endif // SPHERE_H
